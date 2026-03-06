@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+body {
+    font-family: "Rubik";
+    font-size: 1.5rem;
+}
+
+
+@layer components {
+    .btn {
+        @apply mt-4 text-white bg-gray-500 rounded-xl px-4 py-2 cursor-pointer hover:bg-gray-200 transition
+    }
+}
+
+@layer components {
+  .inputs {
+    @apply bg-gray-200 w-full px-4 py-2 text-base rounded-xl
+           focus:outline-none focus:ring-2 focus:ring-amber-500
+           hover:bg-gray-100
+           transition;
+  }
+
+  .labels {
+    @apply block mb-1 text-black text-[1.2rem] font-semibold;
+  }
+}
+
+@layer components {
+  .headerTitle {
+    @apply text-black text-4xl font-bold;
+  }
+}
+
+@layer components {
+  .loginContainer {
+    @apply relative h-screen flex items-center justify-center
+  }
+  .loginContainer::before {
+    @apply content-[""] absolute inset-0 bg-[url(./Icons/loginBackground.jpg)] opacity-[0.1] z-[-1] 
+  }
+}
