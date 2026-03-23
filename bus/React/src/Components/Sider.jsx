@@ -1,7 +1,7 @@
 // Components/Slider.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import busLogo from "../icons/sulybus.png";
 export default function Slider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,9 +22,9 @@ export default function Slider({ children }) {
   <span className="text-xs tracking-widest font-semibold text-orange-200 uppercase">
     Menu
   </span>
-  <div className="w-26 h-26 rounded-full bg-yellow-500 flex items-center justify-center drop-shadow-sm">
+  <div className="w-26 h-26 rounded-full bg-yellow-500 flex items-center justify-center drop-shadow-sm shadow-xl">
     <span className="text-6xl text-white">
-      🚌
+      <img src={busLogo}/>
     </span>
   </div>
 </div>
@@ -71,6 +71,16 @@ export default function Slider({ children }) {
             >
               <span className="w-6 h-6 flex items-center justify-center">ℹ️</span>
               <span className="ml-3 md:hidden">About</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/authform"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center px-3 py-3 md:py-2 hover:bg-orange-500 rounded-lg"
+            >
+              <span className="w-6 h-6 flex items-center justify-center">🗝️</span>
+              <span className="ml-3 md:hidden">Log In</span>
             </Link>
           </li>
         </ul>
