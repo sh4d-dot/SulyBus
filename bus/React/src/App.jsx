@@ -5,14 +5,21 @@ import 'leaflet/dist/leaflet.css';
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
 import './index.css'
-
+import About from './Components/About'
+import AuthForm from './Components/AuthForm';
 function App() {
   
   return (
-    <Routes>
+
+
+     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='signup' element={<SignUp />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/authform' element={<AuthForm />} />
     </Routes>
+
+   
   )
 }
 
