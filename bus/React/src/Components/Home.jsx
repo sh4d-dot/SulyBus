@@ -1,7 +1,11 @@
 // Home.jsx
 import { useState } from "react";
 import Map from "./Map";
+<<<<<<< HEAD
 import Slider from "./Slider";
+=======
+import Slider from "./Sider";
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
 
 export default function Home() {
   const [enableLocation, setEnableLocation] = useState(false);

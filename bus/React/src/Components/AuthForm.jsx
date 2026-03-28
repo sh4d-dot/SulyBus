@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+<<<<<<< HEAD
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import busLogo from "../icons/sulybus.png";
 
 export default function AuthForm( {setUser} ) {
   const navigate = useNavigate(); // <-- Add this at the top of your component
+=======
+import busLogo from "../icons/sulybus.png";
+
+export default function AuthForm() {
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
   const [isLogin, setIsLogin] = useState(true);
   const [regStep, setRegStep] = useState(0);
   const [form, setForm] = useState({
@@ -68,6 +74,7 @@ export default function AuthForm( {setUser} ) {
     setRegStep(prev => prev + 1);
   };
 
+<<<<<<< HEAD
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -107,12 +114,19 @@ export default function AuthForm( {setUser} ) {
     return;
   }
 
+=======
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = {};
+    if (!form.password) newErrors.password = "Password is required";
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
     if (!form.phone || form.phone.length !== 10) newErrors.phone = "Enter a valid 10-digit Iraqi number";
     if (form.email && !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(form.email)) newErrors.email = "Enter a valid email";
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
+<<<<<<< HEAD
     try {
       const res = await axios.post("http://127.0.0.1:8000/api/signup/",
         {
@@ -130,6 +144,9 @@ export default function AuthForm( {setUser} ) {
       console.error(err.response?.data);
       alert("Error creating account");
     }
+=======
+    console.log({ ...form, phone: "+964" + form.phone });
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
   };
 
   return (
@@ -168,10 +185,17 @@ export default function AuthForm( {setUser} ) {
                 className="space-y-4"
               >
                 <input
+<<<<<<< HEAD
                   type="phone"
                   name="phone"
                   placeholder="Phone number"
                   value={form.phone}
+=======
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={form.email}
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-amber-400"
                 />

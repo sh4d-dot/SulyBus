@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AuthForm from "./Components/AuthForm";
 import Home from "./Components/Home";
 import About from "./Components/About";
 
+=======
+import Home from './Components/Home'
+import Map from './Components/Map'
+import SignUp from "./Components/SignUp"
+import 'leaflet/dist/leaflet.css';
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from 'react-router-dom';
+import './index.css'
+import About from './Components/About'
+import AuthForm from './Components/AuthForm';
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
 function App() {
   const [user, setUser] = useState(null);
 
@@ -14,6 +26,7 @@ function App() {
   }, []);
 
   return (
+<<<<<<< HEAD
     <Routes>
       {/* Login / Register */}
       <Route path="/login" element={<AuthForm setUser={setUser} />} />
@@ -32,6 +45,19 @@ function App() {
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
+=======
+
+
+     <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/authform' element={<AuthForm />} />
+    </Routes>
+
+   
+  )
+>>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
 }
 
 export default App;
