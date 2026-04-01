@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-// import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
-=======
 import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
->>>>>>> 68cccd538d61fceb6c56c9a20105c53d27586866
 import busLogo from "../icons/sulybus.png";
 
 function About() {

@@ -145,15 +145,37 @@ useEffect(() => {
   return 2 * R * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
 };
 
+function FixMapSize() {
+  const map = useMap();
 
+  useEffect(() => {
+    if (!map) return;
+
+    // Run once after map is ready
+    const handle = () => map.invalidateSize();
+    
+    // Leaflet has a 'load' event when the map is fully ready
+    map.once('load', handle);
+
+    // Also call immediately in case it's already loaded
+    handle();
+
+    return () => map.off('load', handle);
+  }, [map]);
+
+  return null;
+}
 
   return (
     <>
+    <div className="h-screen w-screen">
     <MapContainer
   center={[35.5606, 45.4330]}
   zoom={14}
   className="h-full w-full "
 >
+  
+  <FixMapSize />
   <TileLayer
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     attribution='&copy; OpenStreetMap'
@@ -198,6 +220,7 @@ useEffect(() => {
     </Marker>
   )}
 </MapContainer>
+</div>
 
 {userPosition && nearestStop && (
   <div
